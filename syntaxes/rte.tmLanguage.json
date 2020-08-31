@@ -209,6 +209,18 @@
           "match": "(\\bb[A-Z][a-zA-Z-0-9._\\-]*)"
         },
         {
+          "name": "variable.array.text.rte",
+          "match": "(\\bta[A-Z][a-zA-Z-0-9._\\-]*)"
+        },
+        {
+          "name": "variable.array.boolean.rte",
+          "match": "(\\bba[A-Z][a-zA-Z-0-9._\\-]*)"
+        },
+        {
+          "name": "variable.array.numeric.rte",
+          "match": "(\\bna[A-Z][a-zA-Z-0-9._\\-]*)"
+        },
+        {
           "begin": "(\\bta[A-Z][a-zA-Z-0-9._\\-]*)(\\[)",
           "beginCaptures": {
             "1": {
@@ -246,7 +258,7 @@
           "begin": "(\\bna[A-Z][a-zA-Z-0-9._\\-]*)(\\[)",
           "beginCaptures": {
             "1": {
-              "name": "variable.array.text.rte"
+              "name": "variable.array.numeric.rte"
             },
             "2": {
               "name": "meta.brace.square.begin.rte"
@@ -280,7 +292,7 @@
           "begin": "(\\bba[A-Z][a-zA-Z-0-9._\\-]*)(\\[)",
           "beginCaptures": {
             "1": {
-              "name": "variable.array.text.rte"
+              "name": "variable.array.boolean.rte"
             },
             "2": {
               "name": "meta.brace.square.begin.rte"

@@ -120,6 +120,12 @@ repository:
                 match: '(\bp[A-Z][a-zA-Z-0-9._\-]*)'
             -   name: variable.boolean.rte
                 match: '(\bb[A-Z][a-zA-Z-0-9._\-]*)'
+            -   name: variable.array.text.rte
+                match: '(\bta[A-Z][a-zA-Z-0-9._\-]*)'
+            -   name: variable.array.boolean.rte
+                match: '(\bba[A-Z][a-zA-Z-0-9._\-]*)'
+            -   name: variable.array.numeric.rte
+                match: '(\bna[A-Z][a-zA-Z-0-9._\-]*)'
             -   begin: '(\bta[A-Z][a-zA-Z-0-9._\-]*)(\[)' #Tableau avec []
                 beginCaptures:
                     "1": { name: variable.array.text.rte }
@@ -135,7 +141,7 @@ repository:
                 -   include: '#functionDeclaration'
             -   begin: '(\bna[A-Z][a-zA-Z-0-9._\-]*)(\[)'
                 beginCaptures:
-                    "1": { name: variable.array.text.rte }
+                    "1": { name: variable.array.numeric.rte }
                     "2": { name: meta.brace.square.begin.rte }
                 end: '(\])'
                 endCaptures:
@@ -148,7 +154,7 @@ repository:
                 -   include: '#functionDeclaration'
             -   begin: '(\bba[A-Z][a-zA-Z-0-9._\-]*)(\[)'
                 beginCaptures:
-                    "1": { name: variable.array.text.rte }
+                    "1": { name: variable.array.boolean.rte }
                     "2": { name: meta.brace.square.begin.rte }
                 end: '(\])'
                 endCaptures:
