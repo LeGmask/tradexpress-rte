@@ -1,0 +1,33 @@
+{
+    "name": "tradexpress-rte",
+    "displayName": "TradeXpress RTE",
+    "description": "Support for the TradeXpress RTE language.",
+    "version": "1.0.0",
+    "publisher": "legmask",
+    "license": "MIT",
+    "icon": "logo.png",
+    "homepage": "https://github.com/LeGmask/tradexpress-rte",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/LeGmask/tradexpress-rte"
+    },
+    "engines": {
+        "vscode": "^1.48.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "rte",
+            "aliases": ["RTE", "rte"],
+            "extensions": [".rte", ".inc"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "rte",
+            "scopeName": "source.rte",
+            "path": "./syntaxes/rte.tmLanguage.json"
+        }]
+    }
+}

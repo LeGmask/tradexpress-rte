@@ -1,0 +1,368 @@
+{
+  "fileTypes": [
+    "rte",
+    "inc"
+  ],
+  "name": "rte",
+  "scopeName": "source.rte",
+  "uuid": "",
+  "patterns": [
+    {
+      "include": "#constant"
+    },
+    {
+      "include": "#basicType"
+    },
+    {
+      "include": "#string"
+    },
+    {
+      "include": "#keyword"
+    },
+    {
+      "include": "#storage"
+    },
+    {
+      "include": "#comment"
+    },
+    {
+      "include": "#functionDeclaration"
+    },
+    {
+      "include": "#assignment"
+    },
+    {
+      "include": "#operator"
+    }
+  ],
+  "repository": {
+    "operator": {
+      "patterns": [
+        {
+          "name": "keyword.operator.comparison.rte",
+          "match": "[<=|>=|<|>|<>|=]"
+        },
+        {
+          "name": "keyword.operator.arithmetic.rte",
+          "match": "[\\-\\-|\\+\\+|/|\\*|\\+|\\-]"
+        }
+      ]
+    },
+    "assignment": {
+      "patterns": [
+        {
+          "name": "keyword.operator.assignment.rte",
+          "match": ":="
+        }
+      ]
+    },
+    "functionDeclaration": {
+      "patterns": [
+        {
+          "begin": "([a-zA-Z]*[a-zA-Z0-9._%+-]*)(\\()",
+          "beginCaptures": {
+            "1": {
+              "name": "entity.name.function.rte"
+            },
+            "2": {
+              "name": "punctuation.section.parens.begin.rte"
+            }
+          },
+          "end": "(\\))",
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.section.parens.end.rte"
+            }
+          },
+          "patterns": [
+            {
+              "include": "#comment"
+            },
+            {
+              "include": "#constant"
+            },
+            {
+              "include": "#basicType"
+            },
+            {
+              "include": "#string"
+            },
+            {
+              "include": "#functionDeclaration"
+            },
+            {
+              "name": "punctuation.separator.rte",
+              "match": ","
+            }
+          ]
+        }
+      ]
+    },
+    "storage": {
+      "patterns": [
+        {
+          "name": "storage.type.function.rte",
+          "match": "(?i:\\b(function|endfunction)\\b)"
+        }
+      ]
+    },
+    "keyword": {
+      "patterns": [
+        {
+          "name": "keyword.control.rte",
+          "match": "(?i:\\b(if|then|else|endif|BREAK|CONTINUE|NEXT|NEXTMESSAGE)\\b)"
+        },
+        {
+          "name": "keyword.loop.rte",
+          "match": "(?i:\\b(while|do|in|endwhile)\\b)"
+        },
+        {
+          "name": "keyword.switch.rte",
+          "match": "(?i:\\b(switch|case|default|endswitch)\\b)"
+        },
+        {
+          "name": "keyword.statements.rte",
+          "match": "(?i:\\b(begin|endbegin|default|endefault|end|endend|line|endline|segment|endsegment)\\b)"
+        },
+        {
+          "name": "keyword.rte",
+          "match": "(?i:\\b(ARGC|ARGV|EOL|EOT|NL|INPUT|OUTPUT|LOGGING|AND|OR|NOT|RETURN|MESSAGE|GROUP|LINE|BULDING|RECEIVING)\\b)"
+        }
+      ]
+    },
+    "string": {
+      "patterns": [
+        {
+          "name": "string.quoted.single.rte",
+          "begin": "'",
+          "captures": {
+            "0": {
+              "name": "string.quoted.single.rte"
+            }
+          },
+          "end": "'",
+          "patterns": [
+            {
+              "name": "constant.character.escape.rte",
+              "match": "\\\\."
+            }
+          ]
+        },
+        {
+          "name": "string.quoted.double.begin.rte",
+          "begin": "\"",
+          "captures": {
+            "0": {
+              "name": "string.quoted.double.end.rte"
+            }
+          },
+          "end": "\"",
+          "patterns": [
+            {
+              "name": "constant.character.escape.rte",
+              "match": "\\\\."
+            }
+          ]
+        }
+      ]
+    },
+    "constant": {
+      "patterns": [
+        {
+          "name": "constant.numeric.decimal.rte",
+          "match": "(\\b[0-9]+\\b)"
+        },
+        {
+          "name": "constant.language.rte",
+          "match": "(\\b(?i:(TRUE|FALSE|EMPTY|NL))\\b)"
+        }
+      ]
+    },
+    "basicType": {
+      "patterns": [
+        {
+          "name": "variable.text.rte",
+          "match": "(\\bt[A-Z][a-zA-Z-0-9.]*)"
+        },
+        {
+          "name": "variable.numeric.rte",
+          "match": "(\\bn[A-Z][a-zA-Z-0-9.]*)"
+        },
+        {
+          "name": "variable.file.rte",
+          "match": "(\\bf[A-Z][a-zA-Z-0-9.]*)"
+        },
+        {
+          "name": "variable.parameter.rte",
+          "match": "(\\bp[A-Z][a-zA-Z-0-9.]*)"
+        },
+        {
+          "name": "variable.boolean.rte",
+          "match": "(\\bb[A-Z][a-zA-Z-0-9.]*)"
+        },
+        {
+          "begin": "(\\bta[A-Z][a-zA-Z-0-9.]*)(\\[)",
+          "beginCaptures": {
+            "1": {
+              "name": "variable.array.text.rte"
+            },
+            "2": {
+              "name": "meta.brace.square.begin.rte"
+            }
+          },
+          "end": "(\\])",
+          "endCaptures": {
+            "0": {
+              "name": "meta.brace.square.end.rte"
+            }
+          },
+          "patterns": [
+            {
+              "include": "#comment"
+            },
+            {
+              "include": "#constant"
+            },
+            {
+              "include": "#basicType"
+            },
+            {
+              "include": "#string"
+            },
+            {
+              "include": "#functionDeclaration"
+            }
+          ]
+        },
+        {
+          "begin": "(\\bna[A-Z][a-zA-Z-0-9.]*)(\\[)",
+          "beginCaptures": {
+            "1": {
+              "name": "variable.array.text.rte"
+            },
+            "2": {
+              "name": "meta.brace.square.begin.rte"
+            }
+          },
+          "end": "(\\])",
+          "endCaptures": {
+            "0": {
+              "name": "meta.brace.square.end.rte"
+            }
+          },
+          "patterns": [
+            {
+              "include": "#comment"
+            },
+            {
+              "include": "#constant"
+            },
+            {
+              "include": "#basicType"
+            },
+            {
+              "include": "#string"
+            },
+            {
+              "include": "#functionDeclaration"
+            }
+          ]
+        },
+        {
+          "begin": "(\\bba[A-Z][a-zA-Z-0-9.]*)(\\[)",
+          "beginCaptures": {
+            "1": {
+              "name": "variable.array.text.rte"
+            },
+            "2": {
+              "name": "meta.brace.square.begin.rte"
+            }
+          },
+          "end": "(\\])",
+          "endCaptures": {
+            "0": {
+              "name": "meta.brace.square.end.rte"
+            }
+          },
+          "patterns": [
+            {
+              "include": "#comment"
+            },
+            {
+              "include": "#constant"
+            },
+            {
+              "include": "#basicType"
+            },
+            {
+              "include": "#string"
+            },
+            {
+              "include": "#functionDeclaration"
+            }
+          ]
+        },
+        {
+          "name": "variable.environement.rte",
+          "match": "(\\bs[A-Z][a-zA-Z-0-9.]*)"
+        },
+        {
+          "name": "variable.commandLine.option.rte",
+          "match": "(\\bo[A-Z][a-zA-Z-0-9.]*)"
+        },
+        {
+          "name": "variable.message.rte",
+          "match": "(mMESSAGE|mVERSION|mRELEASE|mAGENCY)"
+        },
+        {
+          "name": "variable.counter.static.rte",
+          "match": "(\\bc[A-Z][a-zA-Z-0-9.]*)"
+        },
+        {
+          "name": "variable.groupe.symbol.rte",
+          "match": "(\\bg[A-Z][a-zA-Z-0-9.]*)"
+        },
+        {
+          "name": "variable.data.element.rte",
+          "match": "(\\be[A-Z][a-zA-Z-0-9.]*)"
+        },
+        {
+          "name": "variable.parameter.rte",
+          "match": "(\\b(_FILE_|_PARAMFILE__INDEX_)\\b)"
+        }
+      ]
+    },
+    "comment": {
+      "patterns": [
+        {
+          "name": "comment.block.rte",
+          "begin": "(\\/\\*)",
+          "captures": {
+            "0": {
+              "name": "punctuation.definition.comment.rte"
+            }
+          },
+          "end": "(\\*\\/)"
+        },
+        {
+          "name": "comment.block.rte",
+          "begin": "(<%--)",
+          "captures": {
+            "0": {
+              "name": "punctuation.definition.comment.rte"
+            }
+          },
+          "end": "(--%>)"
+        },
+        {
+          "name": "comment.percent.rte",
+          "match": "(%.*)"
+        },
+        {
+          "name": "comment.exclamation.rte",
+          "match": "(!.*)"
+        }
+      ]
+    }
+  }
+}
