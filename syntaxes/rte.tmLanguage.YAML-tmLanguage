@@ -72,8 +72,10 @@ repository:
         -   name: keyword.statements.rte
             match: '(?i:\b(begin|endbegin|default|endefault|end|endend|line|endline|segment|endsegment)\b)'
         -   name: keyword.rte
-            match: '(?i:\b(ARGC|ARGV|EOL|EOT|NL|INPUT|OUTPUT|LOGGING|AND|OR|NOT|RETURN|MESSAGE|GROUP|LINE|BULDING|RECEIVING)\b)' 
-
+            match: '(?i:\b(ARGC|ARGV|EOL|EOT|NL|INPUT|OUTPUT|LOGGING|AND|OR|NOT|RETURN|MESSAGE|GROUP|LINE|BUILDING|RECEIVING)\b)' 
+        -   name: keyword.control.directive.include.rte
+            match: '(?i:\b(#include|base)\b)'
+            
     string:
         patterns:
         -   name: string.quoted.single.rte
@@ -107,16 +109,16 @@ repository:
     basicType:
         patterns: 
             -   name: variable.text.rte
-                match: '(\bt[A-Z][a-zA-Z-0-9.]*)'
+                match: '(\bt[A-Z][a-zA-Z-0-9._\-]*)'
             -   name: variable.numeric.rte
-                match: '(\bn[A-Z][a-zA-Z-0-9.]*)'
+                match: '(\bn[A-Z][a-zA-Z-0-9._\-]*)'
             -   name: variable.file.rte
-                match: '(\bf[A-Z][a-zA-Z-0-9.]*)'
+                match: '(\bf[A-Z][a-zA-Z-0-9._\-]*)'
             -   name: variable.parameter.rte
-                match: '(\bp[A-Z][a-zA-Z-0-9.]*)'
+                match: '(\bp[A-Z][a-zA-Z-0-9._\-]*)'
             -   name: variable.boolean.rte
-                match: '(\bb[A-Z][a-zA-Z-0-9.]*)'
-            -   begin: '(\bta[A-Z][a-zA-Z-0-9.]*)(\[)' #Tableau avec []
+                match: '(\bb[A-Z][a-zA-Z-0-9._\-]*)'
+            -   begin: '(\bta[A-Z][a-zA-Z-0-9._\-]*)(\[)' #Tableau avec []
                 beginCaptures:
                     "1": { name: variable.array.text.rte }
                     "2": { name: meta.brace.square.begin.rte }
@@ -129,7 +131,7 @@ repository:
                 -   include: '#basicType'
                 -   include: '#string' 
                 -   include: '#functionDeclaration'
-            -   begin: '(\bna[A-Z][a-zA-Z-0-9.]*)(\[)'
+            -   begin: '(\bna[A-Z][a-zA-Z-0-9._\-]*)(\[)'
                 beginCaptures:
                     "1": { name: variable.array.text.rte }
                     "2": { name: meta.brace.square.begin.rte }
@@ -142,7 +144,7 @@ repository:
                 -   include: '#basicType'
                 -   include: '#string' 
                 -   include: '#functionDeclaration'
-            -   begin: '(\bba[A-Z][a-zA-Z-0-9.]*)(\[)'
+            -   begin: '(\bba[A-Z][a-zA-Z-0-9._\-]*)(\[)'
                 beginCaptures:
                     "1": { name: variable.array.text.rte }
                     "2": { name: meta.brace.square.begin.rte }
@@ -156,17 +158,17 @@ repository:
                 -   include: '#string' 
                 -   include: '#functionDeclaration'
             -   name: variable.environement.rte
-                match: '(\bs[A-Z][a-zA-Z-0-9.]*)'
+                match: '(\bs[A-Z][a-zA-Z-0-9._\-]*)'
             -   name: variable.commandLine.option.rte
-                match: '(\bo[A-Z][a-zA-Z-0-9.]*)'
+                match: '(\bo[A-Z][a-zA-Z-0-9._\-]*)'
             -   name: variable.message.rte
                 match: '(mMESSAGE|mVERSION|mRELEASE|mAGENCY)'
             -   name: variable.counter.static.rte
-                match: '(\bc[A-Z][a-zA-Z-0-9.]*)'
+                match: '(\bc[A-Z][a-zA-Z-0-9._\-]*)'
             -   name: variable.groupe.symbol.rte
-                match: '(\bg[A-Z][a-zA-Z-0-9.]*)'
+                match: '(\bg[A-Z][a-zA-Z-0-9._\-]*)'
             -   name: variable.data.element.rte
-                match: '(\be[A-Z][a-zA-Z-0-9.]*)'
+                match: '(\be[A-Z-0-9][a-zA-Z-0-9._\-]*)'
             -   name: variable.parameter.rte
                 match: '(\b(_FILE_|_PARAMFILE__INDEX_)\b)'
 

@@ -2,7 +2,7 @@
     "name": "tradexpress-rte",
     "displayName": "TradeXpress RTE",
     "description": "Support for the TradeXpress RTE language.",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "publisher": "legmask",
     "license": "MIT",
     "icon": "logo.png",
