@@ -130,7 +130,11 @@
         },
         {
           "name": "keyword.control.directive.include.rte",
-          "match": "(?i:\\b(#include|base)\\b)"
+          "match": "(?i:\\b(base)\\b)"
+        },
+        {
+          "name": "keyword.control.directive.include.rte",
+          "match": "(?i:(#include)\\b)"
         }
       ]
     },
