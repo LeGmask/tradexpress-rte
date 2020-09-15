@@ -53,6 +53,7 @@ repository:
             -   include: '#constant'
             -   include: '#basicType'
             -   include: '#string' 
+            -   include: '#keyword'
             -   include: '#functionDeclaration'
             -   name: punctuation.separator.rte
                 match: ','

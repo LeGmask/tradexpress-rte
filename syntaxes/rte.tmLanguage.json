@@ -88,6 +88,9 @@
               "include": "#string"
             },
             {
+              "include": "#keyword"
+            },
+            {
               "include": "#functionDeclaration"
             },
             {
