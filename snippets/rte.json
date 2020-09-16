@@ -1,0 +1,125 @@
+{
+    "if": {
+        "prefix": "if",
+        "body": [
+            "if ${1:boolean} then",
+            "\t$0",
+            "endif"
+        ],
+        "description": "if statement"
+    },
+    "while": {
+        "prefix": "while",
+        "body": [
+            "while ${1:boolean} do",
+            "\t$0",
+            "endwhile"
+        ],
+        "description": "while statement"
+    },
+    "whileIn": {
+        "prefix": "whilein",
+        "body": [
+            "while ${1:boolean} in ${2:var} do",
+            "\t$0",
+            "endwhile"
+        ],
+        "description": "while in statement"
+    },
+    "switch": {
+        "prefix": "switch",
+        "body": [
+            "switch ${1:tSelector}",
+            "\tcase ${2:tOption1} :",
+            "\t\t$3",
+            "\tdefault:",
+            "\t\t$0",
+            "endswitch"
+        ],
+        "description": "switch statement"
+    },
+    "begin": {
+        "prefix": "begin",
+        "body": [
+            "begin"
+            "\t$0"
+            "endbegin"
+        ],
+        "description": "begin statement"
+    },
+    "default": {
+        "prefix": "default",
+        "body": [
+            "default"
+            "\t$0"
+            "endefault"
+        ],
+        "description": "default statement"
+    },
+    "end": {
+        "prefix": "end",
+        "body": [
+            "end"
+            "\t$0"
+            "endend"
+        ],
+        "description": "end statement"
+    },
+    "line": {
+        "prefix": "line",
+        "body": [
+            "line(${1:line})"
+            "\t$0"
+            "endline"
+        ],
+        "description": "line statement"
+    },
+    "segment": {
+        "prefix": "segment",
+        "body": [
+            "segment ${1:segment}"
+            "\t$0"
+            "endsegment"
+        ],
+        "description": "segment statement"
+    },
+    "function": {
+        "prefix": "function",
+        "body": [
+            "function ${1:tfFoo()}"
+            "\t$0"
+            "endfunction"
+        ],
+        "description": "function statement"
+    },
+    "return": {
+        "prefix": "return",
+        "body": [
+            "return $0"
+        ],
+        "description": "return statement"
+    },
+    "segment": {
+        "prefix": "segment",
+        "body": [
+            "segment ${1:SEGMENT}"
+            "\t$0"
+            "endsegment"
+        ],
+        "description": "segment statement"
+    },
+    "include": {
+        "prefix": "#include",
+        "body": [
+          "#include \"${0:library}\""
+        ],
+        "description": "include"
+    },
+    "base": {
+        "prefix": "base",
+        "body": [
+          "base \"${O:base}\""
+        ],
+        "description": "base"
+    }
+}

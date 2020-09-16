@@ -2,7 +2,7 @@
     "name": "tradexpress-rte",
     "displayName": "TradeXpress RTE",
     "description": "Support for the TradeXpress RTE language.",
-    "version": "1.0.4",
+    "version": "1.1.0",
     "publisher": "legmask",
     "license": "MIT",
     "icon": "logo.png",
@@ -24,6 +24,12 @@
             "extensions": [".rte", ".inc"],
             "configuration": "./language-configuration.json"
         }],
+        "snippets": [
+            {
+                "language": "rte",
+                "path": "./snippets/rte.json"
+            }
+        ],
         "grammars": [{
             "language": "rte",
             "scopeName": "source.rte",
