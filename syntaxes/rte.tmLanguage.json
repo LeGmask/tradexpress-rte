@@ -8,6 +8,9 @@
   "uuid": "",
   "patterns": [
     {
+      "include": "#inline"
+    },
+    {
       "include": "#constant"
     },
     {
@@ -36,6 +39,34 @@
     }
   ],
   "repository": {
+    "inline": {
+      "patterns": [
+        {
+          "name": "inline.block.rte",
+          "contentName": "meta.embedded.c.rte",
+          "begin": "(\\binline\\b)",
+          "beginCaptures": {
+            "1": {
+              "name": "keyword.inline.rte"
+            }
+          },
+          "end": "(\\bendinline\\b)",
+          "endCaptures": {
+            "1": {
+              "name": "keyword.inline.rte"
+            }
+          },
+          "patterns": [
+            {
+              "include": "source.c"
+            },
+            {
+              "match": "(?=not)possible"
+            }
+          ]
+        }
+      ]
+    },
     "operator": {
       "patterns": [
         {
@@ -383,7 +414,7 @@
         },
         {
           "name": "comment.exclamation.rte",
-          "match": "(!.*)"
+          "match": "(!(?!=).*)"
         }
       ]
     }

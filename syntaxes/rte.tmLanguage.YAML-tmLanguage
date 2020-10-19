@@ -8,6 +8,8 @@ scopeName: source.rte
 uuid: ""
 patterns:  
 
+- include: '#inline'
+
 - include: '#constant'
 
 - include: '#basicType' 
@@ -27,7 +29,31 @@ patterns:
 - include: '#operator'
 
 repository:
-
+    inline:
+    
+        patterns:  
+        # -   name: inline.block.rte
+        #     contentName: meta.embedded.c.rte
+        #     begin: "(\binline\b)"
+        #     beginCaptures:
+        #         "1": {name: keyword.endinline.rte}
+        #     end: "\b(endline)\b"
+        #     endCaptures: 
+        #         "1": {name: keyword.endinline.rte}
+        #     patterns:
+        #     -   include: 'source.c'
+        -   name: inline.block.rte
+            contentName: meta.embedded.c.rte
+            begin: '(\binline\b)'
+            beginCaptures:
+                "1": { name: keyword.inline.rte }
+            end: '(\bendinline\b)'
+            endCaptures: 
+                "1": {name: keyword.inline.rte}
+            patterns:
+            -   include: 'source.c'
+            -   match: '(?=not)possible'
+            
     operator:
         patterns:
         -   name: keyword.operator.comparison.rte
@@ -203,5 +229,5 @@ repository:
             match: '(%.*)'
 
         -   name: comment.exclamation.rte
-            match: '(!.*)'
-        # ----------------------------------------------------
+            match: '(!(?!=).*)'
+        # ----------------------------------------------------           
