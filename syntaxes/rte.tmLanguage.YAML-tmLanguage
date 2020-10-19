@@ -71,7 +71,7 @@ repository:
         -   name: keyword.switch.rte
             match: '(?i:\b(switch|case|default|endswitch)\b)'
         -   name: keyword.statements.rte
-            match: '(?i:\b(begin|endbegin|default|endefault|end|endend|line|endline|segment|endsegment)\b)'
+            match: '(?i:\b(begin|endbegin|default|enddefault|end|endend|line|endline|segment|endsegment)\b)'
         -   name: keyword.rte
             match: '(?i:\b(ARGC|ARGV|EOL|EOT|NL|INPUT|OUTPUT|LOGGING|AND|OR|NOT|RETURN|MESSAGE|GROUP|LINE|BUILDING|RECEIVING)\b)' 
         -   name: keyword.control.directive.include.rte

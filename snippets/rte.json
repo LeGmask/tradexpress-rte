@@ -52,7 +52,7 @@
         "body": [
             "default"
             "\t$0"
-            "endefault"
+            "enddefault"
         ],
         "description": "default statement"
     },

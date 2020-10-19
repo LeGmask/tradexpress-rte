@@ -125,7 +125,7 @@
         },
         {
           "name": "keyword.statements.rte",
-          "match": "(?i:\\b(begin|endbegin|default|endefault|end|endend|line|endline|segment|endsegment)\\b)"
+          "match": "(?i:\\b(begin|endbegin|default|enddefault|end|endend|line|endline|segment|endsegment)\\b)"
         },
         {
           "name": "keyword.rte",
